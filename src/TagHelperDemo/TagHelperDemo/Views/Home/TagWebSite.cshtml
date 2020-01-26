@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewData["Title"] = "WebSite TagHelper";
+}
+
+<div class="text-center">
+    <h1 class="display-4">WebSite TagHelper</h1>
+</div>
+
+<section>
+    <h1 class="display-6">TagHelper</h1>
+    <p><code>&lt;website&gt;&lt;/website&gt;</code> will format the web site url into a link.</p>
+</section>
+<section>
+    <h1 class="display-6">Attributes</h1>
+    <table class="table table-bordered table-padding-sm">
+        <tr>
+            <td>url</td>
+            <td>Link to the website. If link is missing https:// or http:// then the link will be prefixed with https://</td>
+        </tr>
+        <tr>
+            <td>open-new-browser</td>
+            <td>Open the website in a new browser/tab. Default is false.</td>
+        </tr>
+    </table>
+</section>
+<section>
+    <h1 class="display-6">Example 1</h1>
+    <p>
+        <table class="table table-borderless table-padding-sm">
+            <tr>
+                <td>Usage</td>
+                <td><code>&lt;website url="https://www.google.com" open-new-browser="true"&gt;Google&lt;/website&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Generates</td>
+                <td><code>&lt;a href="https://www.google.com" target="_blank"&gt;Google&lt;/a&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Displays</td>
+                <td><website url="https://www.google.com" open-new-browser="true">Google</website></td>
+            </tr>
+        </table>
+    </p>
+</section>
+<section>
+    <h1 class="display-6">Example 2</h1>
+    <p>
+        <table class="table table-borderless table-padding-sm">
+            <tr>
+                <td>Usage</td>
+                <td><code>&lt;website url="www.google.com"&gt;Google&lt;/website&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Generates</td>
+                <td><code>&lt;a href="https://www.google.com"&gt;Google&lt;/a&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Displays</td>
+                <td><website url="www.google.com">Google</website></td>
+            </tr>
+        </table>
+    </p>
+</section>
+<section>
+    <h1 class="display-6">Example 3</h1>
+    <p>You can still use other html attributes within the tag helper like classes.</p>
+    <p>
+        <table class="table table-borderless table-padding-sm">
+            <tr>
+                <td>Usage</td>
+                <td><code>&lt;website url="https://www.google.com" open-new-browser="true" class="btn btn-success"&gt;Google&lt;/website&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Generates</td>
+                <td><code>&lt;a href="https://www.google.com" target="_blank" class="btn btn-success"&gt;Google&lt;/a&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Displays</td>
+                <td><website url="https://www.google.com" open-new-browser="true"  class="btn btn-success">Google</website></td>
+            </tr>
+        </table>
+    </p>
+</section>
+<section>
+    <h1 class="display-6">Bad Example</h1>
+    <p>If the url is empty, &lt;span&gt; will be used to replace the link allowing the content of &lt;website&gt; to be displayed.</p>
+    <p>
+        <table class="table table-borderless table-padding-sm">
+            <tr>
+                <td>Usage</td>
+                <td><code>&lt;website url="" open-new-browser="true"&gt;Google&lt;/website&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Generates</td>
+                <td><code>&lt;span&gt;Google&lt;/span&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Displays</td>
+                <td><website url="" open-new-browser="true">Google</website></td>
+            </tr>
+        </table>
+    </p>
+</section>

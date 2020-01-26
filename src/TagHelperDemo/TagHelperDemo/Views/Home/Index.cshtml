@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-3">TagHelper Demo</h1>
+    <p>Creating custom TagHelpers with ASP.NET Core 3.1</p>
+</div>
+
+<section>
+    <h1 class="display-6">Before we begin</h1>
+    <p>Views/Shared/_Layout.cshtml has been modified to include <code>@@RenderSection("css", required: false)</code> in the &lt;head&gt;&lt;/head&gt; section just after all other stylesheets have been loaded. This is to allow for custom stylesheets to be added to the head section when required.</p>
+    <p>The following line has been added to Views/_ViewImports.cshtml to allow us to use our TagHelpers within a view<br /><code>@@addTagHelper *, TagHelperDemo</code><br />Replace TagHelperDemo with your project name.</p>
+    <p>There are couple of string extensions used by the tag helpers in the Library folder of the project, IsEmpty() and CountOf(). If you copy the tag helper code, you will want to copy these extensions as well.</p>
+</section>
+
+<section>
+    <ul>
+        <li><a asp-controller="Home" asp-action="TagEmail" class="display-7">Email TagHelper</a></li>
+        <li><a asp-controller="Home" asp-action="TagWebSite" class="display-7">WebSite TagHelper</a></li>
+        <li><a asp-controller="Home" asp-action="TagTelephone" class="display-7">Telephone TagHelper</a></li>
+        <li><a asp-controller="Home" asp-action="TagChildSection" class="display-7">ChildSection TagHelper</a></li>
+        <li><a asp-controller="Home" asp-action="TagRenderChildSection" class="display-7">RenderChildSection TagHelper</a></li>
+        <li><a asp-controller="Home" asp-action="TagChildSection2" class="display-7">ChildSection TagHelper Demo 2</a></li>
+    </ul>
+</section>

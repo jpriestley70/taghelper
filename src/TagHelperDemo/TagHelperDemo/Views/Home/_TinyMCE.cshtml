@@ -1,0 +1,15 @@
+﻿<div class="row">
+    <textarea id="edit-me"></textarea>
+</div>
+
+<childsection name="tinymce-css">
+    <link rel="stylesheet" href="~/lib/tinymce/themes/silver/theme.min.js" asp-append-version="true" />
+</childsection>
+<childsection name="tinymce-js">
+    <script src="~/lib/tinymce/tinymce.min.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '#edit-me'
+        });
+    </script>
+</childsection>

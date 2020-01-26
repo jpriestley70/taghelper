@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "Telephone TagHelper";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Telephone TagHelper</h1>
+</div>
+
+<section>
+    <h1 class="display-6">TagHelper</h1>
+    <p><code>&lt;telephone&gt;&lt;/telephone&gt;</code> will format the telephone number into a link. Any spaces, hyphens and (0) will be removed.</p>
+    <p>NOTE: The telephone number in the example is a fake. It was generated from <website url="https://fakenumber.org/uk/london" open-new-browser="true">https://fakenumber.org/uk/london</website></p>
+</section>
+<section>
+    <h1 class="display-6">Attributes</h1>
+    <table class="table table-bordered table-padding-sm">
+        <tr>
+            <td>tel</td>
+            <td>The telephone number that will form part of the link.<br />The telephone number must be an international formatted telephone number.</td>
+        </tr>
+    </table>
+</section>
+<section>
+    <h1 class="display-6">Example 1</h1>
+    <p>
+        <table class="table table-borderless table-padding-sm">
+            <tr>
+                <td>Usage</td>
+                <td><code>&lt;telephone tel="+44 (0)20 7946 0706"&gt;+44 (0)20 7946 0706&lt;/telephone&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Generates</td>
+                <td><code>&lt;a href="tel:+442079460706"&gt;+44 (0)20 7946 0706&lt;/a&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Displays</td>
+                <td><telephone tel="+44 (0)20 7946 0706">+44 (0)20 7946 0706</telephone></td>
+            </tr>
+        </table>
+    </p>
+</section>
+<section>
+    <h1 class="display-6">Example 2</h1>
+    <p>If there is any text within the telephone number, the taghelper will presume it has the number and the remainder is an extension number.</p>
+    <p>
+        <table class="table table-borderless table-padding-sm">
+            <tr>
+                <td>Usage</td>
+                <td><code>&lt;telephone tel="+44 (0)20 7946 0706 Ext 1234"&gt;+44 (0)20 7946 0706 Ext 1234&lt;/telephone&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Generates</td>
+                <td><code>&lt;a href="tel:+442079460706"&gt;+44 (0)20 7946 0706 Ext 1234&lt;/a&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Displays</td>
+                <td><telephone tel="+44 (0)20 7946 0706 Ext 1234">+44 (0)20 7946 0706 Ext 1234</telephone></td>
+            </tr>
+        </table>
+    </p>
+</section>
+<section>
+    <h1 class="display-6">Bad Example</h1>
+    <p>If the telephone number is in an invalid format, &lt;span&gt; will be used to replace the link allowing the content of &lt;telephone&gt; to be displayed.</p>
+    <p>
+        <table class="table table-borderless table-padding-sm">
+            <tr>
+                <td>Usage</td>
+                <td><code>&lt;telephone tel="020 7946 0706"&gt;020 7946 0706&lt;/email&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Generates</td>
+                <td><code>&lt;span&gt;020 7946 0706&lt;/span&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Displays</td>
+                <td><telephone tel="020 7946 0706">020 7946 0706</telephone></td>
+            </tr>
+        </table>
+    </p>
+</section>

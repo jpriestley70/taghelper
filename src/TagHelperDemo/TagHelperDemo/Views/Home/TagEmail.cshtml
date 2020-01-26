@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewData["Title"] = "Email TagHelper";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Email TagHelper</h1>
+</div>
+
+<section>
+    <h1 class="display-6">TagHelper</h1>
+    <p><code>&lt;email&gt;&lt;/email&gt;</code> will format the email address into a link and appends mailto within the url.</p>
+</section>
+<section>
+    <h1 class="display-6">Attributes</h1>
+    <table class="table table-bordered table-padding-sm">
+        <tr>
+            <td>mail-to</td>
+            <td>The email address that will form part of the link.</td>
+        </tr>
+    </table>
+</section>
+<section>
+    <h1 class="display-6">Example 1</h1>
+    <p>
+        <table class="table table-borderless table-padding-sm">
+            <tr>
+                <td>Usage</td>
+                <td><code>&lt;email mail-to="someone@example.com"&gt;someone at example dot com&lt;/email&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Generates</td>
+                <td><code>&lt;a href="mailto:someone@example.com"&gt;someone at example dot com&lt;/a&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Displays</td>
+                <td><email mail-to="someone@example.com">someone at example dot com</email></td>
+            </tr>
+        </table>
+    </p>
+</section>
+<section>
+    <h1 class="display-6">Example 2</h1>
+    <p>You can still use other html attributes within the tag helper like classes.</p>
+    <p>
+        <table class="table table-borderless table-padding-sm">
+            <tr>
+                <td>Usage</td>
+                <td><code>&lt;email mail-to="someone@example.com" class="btn btn-success"&gt;someone at example dot com&lt;/email&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Generates</td>
+                <td><code>&lt;a href="mailto:someone@example.com" class="btn btn-success"&gt;someone at example dot com&lt;/a&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Displays</td>
+                <td><email mail-to="someone@example.com" class="btn btn-success">someone at example dot com</email></td>
+            </tr>
+        </table>
+    </p>
+</section>
+<section>
+    <h1 class="display-6">Bad Example</h1>
+    <p>If the email address is an invalid format, &lt;span&gt; will be used to replace the link allowing the content of &lt;email&gt; to be displayed.</p>
+    <p>
+        <table class="table table-borderless table-padding-sm">
+            <tr>
+                <td>Usage</td>
+                <td><code>&lt;email mail-to="someone@example..com"&gt;someone at example dot dot com&lt;/email&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Generates</td>
+                <td><code>&lt;span&gt;someone at example dot dot com&lt;/span&gt;</code></td>
+            </tr>
+            <tr>
+                <td>Displays</td>
+                <td><email mail-to="someone@example..com">someone at example dot dot com</email></td>
+            </tr>
+        </table>
+    </p>
+</section>

@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "ChildSection TagHelper";
+}
+
+<div class="text-center">
+    <h1 class="display-4">ChildSection &amp; RenderChildSection TagHelper</h1>
+</div>
+<section>
+    <h1 class="display-6">Demo</h1>
+    <p>In this demo we will look at rendering the <code>&lt;childsection&gt;&lt;/childsection&gt;</code> from _ChildSectionSetUp.cshtml in a different order and where one of the ChildSections will be &quot;before&quot; the partial view is processed.</p>
+</section>
+
+<section>
+    <h1 class="display-6">RenderChildSection Before Rendering Partial View</h1>
+    <renderchildsection name="setup00"></renderchildsection>
+    <p>There is a <code>&lt;renderchildsection&gt;&lt;/renderchildsection&gt;</code> before this paragraph but since it's used before the partial view _ChildSectionSetup.cshtml is even processed, there is nothing to render.</p>
+</section>
+
+<partial name="_ChildSectionSetUp" />
+
+<section>
+    <renderchildsection name="setup03"></renderchildsection>
+</section>
+
+<section>
+    <renderchildsection name="setup01"></renderchildsection>
+</section>
+
+<section>
+    <renderchildsection name="setup04"></renderchildsection>
+</section>
+
+<section>
+    <renderchildsection name="setup02"></renderchildsection>
+</section>

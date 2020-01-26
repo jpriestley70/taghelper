@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "ChildSection TagHelper";
+}
+
+<div class="text-center">
+    <h1 class="display-4">ChildSection TagHelper</h1>
+</div>
+<section>
+    <h1 class="display-6">TagHelper</h1>
+    <p>
+        There are times when you don't want all your css or javascript files loaded all the time, that's why Views/Shared/_Layout.cshtml contains @@RenderSection and from your views, you will use @@section to embed your extra scripts.<br />
+        However you cannot do that from partial views. This is where <code>&lt;childsection&gt;&lt;/childsection&gt;</code> and <code>&lt;renderchildsection&gt;&lt;/renderchildsection&gt;</code> come in.<br />
+        <code>&lt;childsection&gt;&lt;/childsection&gt;</code> contains the html/scripts you want to render in different sections of the view.<br />
+        <code>&lt;renderchildsection&gt;&lt;/renderchildsection&gt;</code> renders the content of <code>&lt;childsection&gt;&lt;/childsection&gt;</code>
+    </p>
+    <p><code>&lt;childsection&gt;&lt;/childsection&gt;</code> needs to be processed before <code>&lt;renderchildsection&gt;&lt;/renderchildsection&gt;</code> otherwise nothing will get rendered.</p>
+</section>
+<section>
+    <h1 class="display-6">Attributes</h1>
+    <table class="table table-bordered table-padding-sm">
+        <tr>
+            <td>name</td>
+            <td>Name of the child section. Default name is childsection.</td>
+        </tr>
+    </table>
+</section>
+<section>
+    <h1 class="display-6">Example</h1>
+    <p>The example uses the partial view Views/Home/_TinyMCE.cshtml which contains two child sections, one for CSS and one for Javascript. This view contains <code>&lt;renderchildsection&gt;&lt;/renderchildsection&gt;</code> within @@section to render the child sections in the right place in _Layout.cshtml</p>
+    <pre><code>
+    &lt;childsection name="tinymce-css"&gt;
+        &lt;link rel="stylesheet" href="~/lib/tinymce/themes/silver/theme.min.js" asp-append-version="true" /&gt;
+    &lt;/childsection&gt;
+
+    &lt;childsection name="tinymce-js"&gt;
+        &lt;script src="~/lib/tinymce/tinymce.min.js" asp-append-version="true"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript"&gt;
+            tinymce.init({
+                selector: '#edit-me'
+            });
+        &lt;/script&gt;
+    &lt;/childsection&gt;
+</code></pre>
+    <partial name="_TinyMCE" />
+</section>
+
+@section css
+{
+    <renderchildsection name="tinymce-css"></renderchildsection>
+}
+
+@section scripts
+{
+    <renderchildsection name="tinymce-js"></renderchildsection>
+}
